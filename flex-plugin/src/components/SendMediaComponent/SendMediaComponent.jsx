@@ -69,6 +69,7 @@ class UploadComponent extends React.Component {
     };
 
     try {
+      console.log(`sendMediaMessageUrl ${sendMediaMessageUrl}`)
       const response = await fetch(sendMediaMessageUrl, options);
       const json = await response.json();
       console.log(`Media message sent to ${to}.`, json);

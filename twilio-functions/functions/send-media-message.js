@@ -1,6 +1,8 @@
 const TokenValidator = require('twilio-flex-token-validator').functionValidator;
 
 exports.handler = TokenValidator(async function(context, event, callback) {
+
+  console.log(`START-----`);
   const response = new Twilio.Response();
   response.appendHeader('Access-Control-Allow-Origin', '*');
   response.appendHeader('Access-Control-Allow-Methods', 'OPTIONS POST');
@@ -28,6 +30,7 @@ exports.handler = TokenValidator(async function(context, event, callback) {
   }
 
   try {
+    console.log(`mediaUrl: ${mediaUrl}`);
     const result = await client.messages.create({
       from,
       to,
